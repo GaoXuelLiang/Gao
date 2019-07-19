@@ -40,7 +40,7 @@ export default {
 </script>
 
 <style>
-@import "sass/base.scss";
+/* @import "sass/base.scss"; */
 html,
 body {
     width: 100%;
