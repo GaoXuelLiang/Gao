@@ -1,23 +1,57 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
-  </div>
+    <div id="app"
+         class="app-main"
+         ref="Main">
+        <router-view v-if="isRouterAlive" />
+    </div>
 </template>
 
 <script>
 export default {
-  name: 'App'
+    name: 'app',
+    provide () {
+        return {
+            reload: this.reload,
+        }
+    },
+    data () {
+        return {
+            isRouterAlive: true,
+        }
+    },
+    mounted () {
+        if (window.location.hash.replace("#/", "") === 'employeeHomeNew' || window.location.hash.replace("#/", "") === 'employeeHome') {
+            this.$refs.Main.style.overflow = 'auto'
+        }
+        this.$Message.config({
+            top: 120,
+            duration: 2
+        });
+    },
+    methods: {
+        reload () {
+            this.isRouterAlive = false
+            this.$nextTick(function () {
+                this.isRouterAlive = true
+            })
+        },
+    },
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+@import "sass/base.scss";
+html,
+body {
+    width: 100%;
+    height: 100%;
+    background: #f0f0f0;
+    overflow: hidden;
+}
+.app-main {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    /*overflow-y: auto;*/
 }
 </style>
