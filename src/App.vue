@@ -7,6 +7,7 @@
 </template>
 
 <script>
+//本页为消除空白引入
 export default {
     name: 'app',
     provide () {
@@ -39,7 +40,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 /* @import "sass/base.scss"; */
 html,
 body {

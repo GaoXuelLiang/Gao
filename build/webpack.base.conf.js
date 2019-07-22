@@ -40,6 +40,7 @@ module.exports = {
   },
   module: {
     rules: [
+      //You may use special comments to disable some warnings.报错解决注释下一行
       // ...(config.dev.useEslint ? [createLintingRule()] : []),
       {
         test: /\.vue$/,
@@ -74,6 +75,10 @@ module.exports = {
           limit: 10000,
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
+      },
+      {
+        test: /\.scss$/,
+        loaders: ["style", "css", "sass"]
       }
     ]
   },
