@@ -3,18 +3,20 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+//iview组件引入
 import iView from 'iview';
 import 'iview/dist/styles/iview.css';
 import VueRouter from 'vue-router';
-//import App from 'components/app.vue';
-//import Routers from './router.js';
+//elementui组件引入
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+import { MenuItem } from 'element-ui'
+
 Vue.use(VueRouter);
 Vue.use(iView);
+Vue.use(ElementUI)
+Vue.use(MenuItem)
 
-// const RouterConfig = {
-//   routes: Routers
-// };
-//const router = new VueRouter(RouterConfig);
 
 Vue.config.productionTip = false
 
