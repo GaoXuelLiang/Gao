@@ -10,13 +10,15 @@ import VueRouter from 'vue-router';
 //elementui组件引入
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
-import { MenuItem } from 'element-ui'
+import { MenuItem,Tag,Tree} from 'element-ui'
+import store from './vuex/store'
+
 
 Vue.use(VueRouter);
 Vue.use(iView);
 Vue.use(ElementUI)
 Vue.use(MenuItem)
-
+Vue.use(Tag)
 
 Vue.config.productionTip = false
 
@@ -24,6 +26,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store:store,
   components: { App },
   template: '<App/>'
 })

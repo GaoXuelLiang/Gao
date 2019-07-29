@@ -4,7 +4,7 @@
     </div>
 </template>
 <script>
-import Bus from '../bus'
+
 export default {
     data(){
         return {
@@ -12,10 +12,7 @@ export default {
         }
     },
     mounted(){
-        Bus.$on('msg',(e)=>{
-            this.a=e
-            console.log(`${e}`)
-        })
+        
     }
 }
 </script>
