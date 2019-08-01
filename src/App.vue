@@ -40,7 +40,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 /* @import "sass/base.scss"; */
 html,
 body {
@@ -54,5 +54,8 @@ body {
     height: 100%;
     background-color: white;
     /*overflow-y: auto;*/
+}
+ .el-menu{
+    border-right: solid 0px #0a0a0a;
 }
 </style>

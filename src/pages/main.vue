@@ -9,27 +9,23 @@
             </div>
             <div class="person-authority">
                 <div class="">
-                    <Dropdown>
+                    <Dropdown transfer trigger="hover" @on-click="changeselectedname">
                         <a href="javascript:void(0)" style="color:white">
-                            下拉菜单
+                            {{selectedname}}
                             <Icon type="ios-arrow-down"></Icon>
                         </a>
                         <DropdownMenu slot="list">
-                            <DropdownItem>驴打滚</DropdownItem>
-                            <DropdownItem>炸酱面</DropdownItem>
-                            <DropdownItem>豆汁儿</DropdownItem>
-                            <DropdownItem>冰糖葫芦</DropdownItem>
-                            <DropdownItem>北京烤鸭</DropdownItem>
+                            <DropdownItem v-for='(item,index) in list' :key='index' :name='item.name'>{{item.name}}</DropdownItem>
                         </DropdownMenu>
                     </Dropdown>
                 </div>
             </div>
         </div>
         <div class="section">
-            <hrmenu ref="menu" class="left">
+            <hrmenu ref="menu" class="left" @toggleClick="toggleClick">
             
             </hrmenu>
-            <div class="right">
+            <div class="right" :style="{left:shrink?'64px':'200px'}">
                 <pagetab class="pagetab">
 
                 </pagetab>
@@ -48,12 +44,23 @@
     export default {
         data () {
             return {
-               
+               shrink:false,
+               selectedname:'全部',
+               list:[{name:'全部'},{name:'纳杰'},{name:'HRO'},{name:'SSC'},{name:'金柚'},{name:'西门子'}]
             }
         },
         components:{
             hrmenu,
             pagetab
+        },
+        methods:{
+            //接收子组件传过来的shrink
+            toggleClick(t){
+                this.shrink=t
+            },
+            changeselectedname(name){           
+                this.selectedname=name 
+            }
         }
     }
 </script>
@@ -99,7 +106,8 @@
         display: flex;
         .left{
             width: 200px;
-            background-color: #495060
+            background-color: #495060;
+            height: 800px;
         }
         .right{
             position: absolute;
@@ -111,7 +119,7 @@
             background-color: #f0f0f0;
             // z-index: 1;
             transition: left 0.3s;
-            left: 200px;
+            // left: 200px;
             .pagetab{
                 height: 40px;
                 display: flex

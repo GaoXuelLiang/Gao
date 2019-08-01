@@ -1,24 +1,23 @@
 <template>
     <div class="tag">
-        <div>
+        <div class="tagname">
             <el-tag
-            :key="tag"
-            v-for="tag in Tags"
+            :key="tag.title"
+            v-for="tag in pageOpenTagList"
             closable
             :disable-transitions="false"
             @close="handleClose(tag)">
-            {{tag}}
+            {{tag.title}}
             </el-tag>
         </div>
         <div class="cleartag">
-            <Dropdown>
+            <Dropdown trigger="hover" transfer @on-click="changetagname">
                 <Button type="primary">
-                    选择标签
+                    {{tagname}}
                     <Icon type="ios-arrow-down"></Icon>
                 </Button>
                 <DropdownMenu slot="list">
-                    <DropdownItem>关闭所有</DropdownItem>
-                    <DropdownItem>关闭其他</DropdownItem> 
+                    <DropdownItem v-for="(item,index) in list" :key="index" :name='item.name'>{{item.name}}</DropdownItem>
                 </DropdownMenu>
             </Dropdown>
         </div>
@@ -29,12 +28,23 @@
 export default {
     data(){
         return{
-            Tags:["nice","pace","prettry","grateful"]
+            //pageOpenTagList:[],
+            tagname:'选择标签',
+            list:[{name:'关闭所有'},{name:"关闭其他"}]
         }
     },
     methods:{
         handleClose(tag){
-            this.Tags.splice(this.Tags.indexOf(tag),1)
+            this.pageOpenTagList.splice(this.pageOpenTagList.indexOf(tag),1)
+        },
+        changetagname(name){
+            this.tagname=name
+        }
+    },
+    //获取$store的pageOpenTagList
+    computed:{
+        pageOpenTagList:function(){
+            return this.$store.state.app.pageOpenTagList
         }
     }
 }
@@ -42,6 +52,9 @@ export default {
 <style lang="scss" scoped>
     .tag{
         position: relative;
+        .tagname{
+            margin-left:10px; 
+        }
         .cleartag{
             position: absolute;
             right: 0;
