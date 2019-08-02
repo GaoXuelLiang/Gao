@@ -10,7 +10,7 @@ import VueRouter from 'vue-router';
 //elementui组件引入
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
-import { MenuItem,Tag,Tree} from 'element-ui'
+import { MenuItem, Tag, Tree, Upload} from 'element-ui'
 //vuex
 import store from './vuex/store'
 
@@ -20,6 +20,7 @@ Vue.use(iView);
 Vue.use(ElementUI)
 Vue.use(MenuItem)
 Vue.use(Tag)
+Vue.use(Upload)
 
 Vue.config.productionTip = false
 

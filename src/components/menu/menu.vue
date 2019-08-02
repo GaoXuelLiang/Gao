@@ -39,10 +39,8 @@
             <Icon v-else :type="item.className" size="16" color="#fff" style="margin-right: 5px;width: 15px;text-align: center"></Icon>
         </el-menu-item>
       </template>
-       
 
-    </el-menu>
-    
+    </el-menu>  
   </div>
 </template>
 <script>
@@ -53,7 +51,8 @@
             shrink:false,
             menu:[{id:"1",className:'logo-javascript',nodeName:'Absolutely',children:[{id:"1-1",className:'ios-basketball-outline',nodeName:'Great'},{id:"1-2",className:'ios-beer-outline',nodeName:'Perfect'},{id:"1-3",className:'ios-bug-outline',nodeName:'Serious'}]},
                   {id:"2",className:'ios-paper-plane-outline',nodeName:'Appreciate'},
-                  {id:"3",className:'ios-pizza-outline',nodeName:'Congratulations'},]
+                  {id:"3",className:'ios-pizza-outline',nodeName:'Congratulations'},
+                  {id:"4",className:'ios-color-wand-outline',nodeName:'Wednesday'},]
           }
         },
         methods:{
@@ -62,7 +61,7 @@
             this.shrink=!this.shrink
             this.$emit("toggleClick",this.shrink)
           },
-          //组件事件出发返回选中的index path
+          //组件事件触发返回选中的index path
           changeMenu(id){
             for(let i=0;i<this.menu.length;i++){
               if(this.menu[i].id==id){
@@ -70,10 +69,10 @@
               }
             }
             const tag={
-              title:name,
-              path:'/'+name,
-              name:name,
-              query:{id:id,}
+              title:JSON.stringify(name),
+              // path:'/'+name,
+              path:'',
+              name:name
             }
              this.$store.commit('increateTag', tag)
           },

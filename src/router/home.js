@@ -8,6 +8,7 @@ import Register from '@/pages/home/register';
 //修改密码
 import Change from '@/pages/home/change';
 
+
 export default [
     {
         path:'/home',

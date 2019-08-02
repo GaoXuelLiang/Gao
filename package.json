@@ -14,6 +14,7 @@
     "element-ui": "^2.10.1",
     "iview": "^3.4.2",
     "vue": "^2.5.2",
+    "vue-avatar": "^2.1.7",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {

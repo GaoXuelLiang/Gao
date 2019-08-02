@@ -11,7 +11,7 @@
             </el-tag>
         </div>
         <div class="cleartag">
-            <Dropdown trigger="hover" transfer @on-click="changetagname">
+            <Dropdown trigger="hover" transfer>
                 <Button type="primary">
                     {{tagname}}
                     <Icon type="ios-arrow-down"></Icon>
@@ -37,9 +37,9 @@ export default {
         handleClose(tag){
             this.pageOpenTagList.splice(this.pageOpenTagList.indexOf(tag),1)
         },
-        changetagname(name){
-            this.tagname=name
-        }
+        // changetagname(name){
+        //     this.tagname=name
+        // }
     },
     //获取$store的pageOpenTagList
     computed:{
@@ -57,7 +57,7 @@ export default {
         }
         .cleartag{
             position: absolute;
-            right: 0;
+            right: 20px;
         }
     }
 </style>
