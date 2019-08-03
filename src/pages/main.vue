@@ -73,7 +73,7 @@
             return {
                shrink:false,
                selectedname:'组织',
-               list:[{name:'全部'},{name:'纳杰'},{name:'HRO'},{name:'SSC'},{name:'金柚'},{name:'西门子'}],
+               list:[{name:'全部'},{name:'索克'},{name:'HRO'},{name:'SSC'},{name:'金柚'},{name:'西门子'}],
                //上传图片
                imageUrl: '../../static/homeimg/nice.jpg',
                //当前时间
@@ -207,7 +207,7 @@
                 height: 40px;
                 display: flex;
                 padding-top: 5px;
-                border-bottom: 1px solid rgb(63, 59, 59)
+                border-bottom: 1px solid #193545
             }
         }
     }

@@ -52,10 +52,15 @@ body {
 .app-main {
     width: 100%;
     height: 100%;
-    background-color: white;
+    background-color:  #0d0a0a;
     /*overflow-y: auto;*/
 }
+//我的信息
  .el-menu{
     border-right: solid 0px #0a0a0a;
+}
+.ivu-table-wrapper{
+    border:solid 0px #fff;
+    border-radius: 7px
 }
 </style>

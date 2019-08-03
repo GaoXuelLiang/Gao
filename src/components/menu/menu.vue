@@ -50,7 +50,7 @@
           return{
             shrink:false,
             menu:[{id:"1",className:'logo-javascript',nodeName:'Absolutely',children:[{id:"1-1",className:'ios-basketball-outline',nodeName:'Great'},{id:"1-2",className:'ios-beer-outline',nodeName:'Perfect'},{id:"1-3",className:'ios-bug-outline',nodeName:'Serious'}]},
-                  {id:"2",className:'ios-paper-plane-outline',nodeName:'Appreciate'},
+                  {id:"2",className:'ios-paper-plane-outline',nodeName:'Appreciate',children:[{id:"2-1",className:'ios-camera-outline',nodeName:'Monday'},{id:"2-2",className:'ios-ice-cream-outline',nodeName:'Tuesday'},{id:"2-3",className:'ios-shirt-outline',nodeName:'Wednesday'},{id:"2-4",className:'ios-umbrella-outline',nodeName:'Thursday'},{id:"2-5",className:'ios-no-smoking-outline',nodeName:'Friday'}]},
                   {id:"3",className:'ios-pizza-outline',nodeName:'Congratulations'},
                   {id:"4",className:'ios-color-wand-outline',nodeName:'Wednesday'},]
           }
