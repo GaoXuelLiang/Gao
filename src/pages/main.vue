@@ -3,10 +3,10 @@
         <!-- 头部 -->
         <div class="header">
             <div class="logo">
-                <img src="../../static/homeimg/logo.jpg" alt="" width="80">
+                <img src="../../static/homeimg/logo.jpg" alt="" width="80" @click="backhome()">
             </div>
             <div class="authority">
-                AIRLINE-AWESOME
+                TWO UMBRELLA
             </div>
             <!-- 头部右侧我的信息和公司 -->
             <div class="person-authority">
@@ -49,7 +49,7 @@
             
             </hrmenu>
             <div class="right" :style="{left:shrink?'64px':'200px'}">
-                <pagetab class="pagetab">
+                <pagetab class="pagetab" :pageTagsList="pageTagsList">
 
                 </pagetab>
                 <div>
@@ -72,7 +72,7 @@
         data () {
             return {
                shrink:false,
-               selectedname:'组织',
+               selectedname:'全部',
                list:[{name:'全部'},{name:'索克'},{name:'HRO'},{name:'SSC'},{name:'金柚'},{name:'西门子'}],
                //上传图片
                imageUrl: '../../static/homeimg/nice.jpg',
@@ -93,11 +93,23 @@
         mounted(){
             this.getNewDate()
         },
+        computed:{
+            pageTagsList(){
+                var tag={}
+                return this.$store.state.app.pageOpenedList
+            }
+        },
         methods:{
+            //返回主页
+            backhome(){
+                this.close()
+            },
             //个人中心
             changeperson(name){
                 this.showUserinfo=true;
                 this.showsection=false;
+                this.$refs.userinfo.loading=true;
+                this.$refs.userinfo.ready()
             },
             close(){
                 this.showUserinfo=false;
@@ -164,6 +176,7 @@
         height: 50px;
         line-height: 50px;
         font-weight: 700;
+        font-family: "Yuanti SC";
     }
     .person-authority{
         position: absolute;

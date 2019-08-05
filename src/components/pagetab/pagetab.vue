@@ -43,7 +43,7 @@ export default {
     },
     //获取$store的pageOpenTagList
     computed:{
-        pageOpenTagList:function(){
+        pageOpenTagList(){
             return this.$store.state.app.pageOpenTagList
         }
     }
