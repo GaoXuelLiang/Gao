@@ -66,7 +66,7 @@ export default {
                 this.checkname='home'
             }else{
                 this.$store.commit("clearOtherTags")
-                this.checkname='home'
+                this.checkname=this.pageOpenTagList[this.pageOpenTagList.length-1].name
             }
         }
         // changetagname(name){
