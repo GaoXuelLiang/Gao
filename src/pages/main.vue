@@ -49,7 +49,7 @@
             
             </hrmenu>
             <div class="right" :style="{left:shrink?'64px':'200px'}">
-                <pagetab class="pagetab" :pageTagsList="pageTagsList">
+                <pagetab class="pagetab" :pageTagsList="pageTagsList" ref="pagetab">
 
                 </pagetab>
                 <div>
@@ -217,7 +217,7 @@
             transition: left 0.3s;
             // left: 200px;
             .pagetab{
-                height: 40px;
+                height: 42px;
                 display: flex;
                 padding-top: 5px;
                 border-bottom: 1px solid #193545

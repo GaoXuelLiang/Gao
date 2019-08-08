@@ -13,6 +13,7 @@ const app=({
         setOpenedList (state) {
             state.pageOpenTagList = localStorage.pageOpenTagList ? JSON.parse(localStorage.pageOpenTagList) : state.pageOpenTagList;
         },
+        //添加tag标签
         increateTag(state,tagObj){
             // some函数循环page标签有一个值和tagObj相等flag返回true
             let flag = state.pageOpenTagList.some((item,index)=>{
@@ -29,6 +30,17 @@ const app=({
                 }
             }
             state.pageOpenTagList.push(tagObj);
+        },
+        // 清除所有标签
+        clearAllTags(state){
+            // 从下标[1]开始到最后,留下home
+                state.pageOpenTagList.splice(1)
+        },
+        // 清除其他标签保存当前最后一个标签
+        clearOtherTags(state){
+            for(let i=0;i<state.pageOpenTagList.length;i++){
+                state.pageOpenTagList.splice(1,state.pageOpenTagList.length-2);
+            }
         }
     },
 

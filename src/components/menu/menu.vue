@@ -71,6 +71,7 @@
   </div>
 </template>
 <script>
+  import Bus from '../../lib/bus'
 export default {
   data() {
     return {
@@ -166,22 +167,23 @@ export default {
     },
     //组件事件触发返回选中的index path
     changeMenu(id) {
-		let name = "";
-		if (this.data.length > 0) {
-			for (let i = 0; i < this.data.length; i++) {
-				if (this.data[i].id == id) {
-					name = this.data[i].nodeName;
-					break;
-				} 
+      let name = "";
+      if (this.data.length > 0) {
+        for (let i = 0; i < this.data.length; i++) {
+          if (this.data[i].id == id) {
+            name = this.data[i].nodeName;
+            break;
+          } 
+        }
+        const tag = {
+          title: name,
+          // path:'/'+name,
+          // path:'',
+          name: name
+        };
+        this.$store.commit("increateTag", tag);
+        Bus.$emit("checkname",tag.title)
       }
-			const tag = {
-				title: name,
-				// path:'/'+name,
-				// path:'',
-				name: name
-			};
-			this.$store.commit("increateTag", tag);
-		}
     },
     same(arr) {
       arr.forEach((value, index) => {
