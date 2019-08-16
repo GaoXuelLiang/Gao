@@ -24,31 +24,31 @@
       <template v-for="(item,index) in menu">
         <!-- 判断是否有2级菜单 -->
         <el-submenu v-if="item.children" :key="index" :index="item.id">
-          <template slot="title">
-            <Icon
-              :type="item.className"
-              size="16"
-              color="#fff"
-              style="margin-right: 5px;width: 15px;text-align: center"
-            ></Icon>
-            <span>{{item.nodeName}}</span>
-          </template>
-          <!-- 2级 -->
-          <template v-for="(item2,index2) in item.children">
-            <el-submenu v-if="item2.children" :key="index2" :index="item2.id"></el-submenu>
-            <el-menu-item v-else :index="item2.id" :key="index2">
+            <template slot="title">
               <Icon
-                :type="item2.className"
+                :type="item.className"
                 size="16"
                 color="#fff"
                 style="margin-right: 5px;width: 15px;text-align: center"
               ></Icon>
-              <span>{{item2.nodeName}}</span>
-            </el-menu-item>
-          </template>
+              <span>{{item.nodeName}}</span>
+            </template>
+            <!-- 2级 -->
+            <template v-for="(item2,index2) in item.children">
+              <el-submenu v-if="item2.children" :key="index2" :index="item2.id"></el-submenu>
+              <el-menu-item v-else :index="item2.id" :key="index2" :route="{path:item2.nodeName,query:{}}">
+                <Icon
+                  :type="item2.className"
+                  size="16"
+                  color="#fff"
+                  style="margin-right: 5px;width: 15px;text-align: center"
+                ></Icon>
+                <span>{{item2.nodeName}}</span>
+              </el-menu-item>
+            </template>
         </el-submenu>
         <!-- 没有2级就只显示1级菜单 -->
-        <el-menu-item v-else :index="item.id" :key="index">
+        <el-menu-item v-else :index="item.id" :key="index" :route="{path:item.nodeName,query:{}}">
           <template slot="title" v-if="!shrink">
             <Icon
               :type="item.className"
@@ -177,10 +177,12 @@ export default {
         }
         const tag = {
           title: name,
-          // path:'/'+name,
+          path:'/'+name,
           // path:'',
           name: name
         };
+        // 路由跳转
+        this.$router.push(tag.path)
         this.$store.commit("increateTag", tag);
         Bus.$emit("checkname",tag.title)
       }

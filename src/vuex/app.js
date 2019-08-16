@@ -5,7 +5,7 @@ const app=({
     state:{
         pageOpenTagList:[{
             title:'home',
-            // path:'',
+            path:'',
             name:'home'
         }]
     },
