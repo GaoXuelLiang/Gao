@@ -1,13 +1,12 @@
 <template>
-    <div>
-        1
-    </div>
+    <Rate v-model="value" />
 </template>
 <script>
-export default {
-    
-}
+    export default {
+        data () {
+            return {
+                value: 0
+            }
+        }
+    }
 </script>
-<style>
-
-</style>

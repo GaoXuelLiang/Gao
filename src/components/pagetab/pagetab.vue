@@ -53,12 +53,30 @@ export default {
                 // 如果当前选中的tag标签和点击关闭的标签一样，那么checkname状态值给前一位（实现就是直接获取vuex中的最后一个tagname）
                 if(tag.name==this.checkname){
                     this.checkname=this.pageOpenTagList[this.pageOpenTagList.length-1].name
+                    let name = this.checkname
+                    const tags = {
+                        title: name,
+                        path:'/'+name,
+                        // path:'',
+                        name: name
+                    };
+                    // 路由跳转
+                    this.$router.push(tags.path)
                 }
             }
         },
         // 获取到当前点击的tag.name保存到checkname为当前然后在 循环的tag标签中做判断是否等于checkname，等于说明为触发的标签
         handleChange(tag){
-            this.checkname=tag.name 
+            this.checkname = tag.name 
+            let name = this.checkname
+            const tags = {
+                title: name,
+                path:'/'+name,
+                // path:'',
+                name: name
+            };
+            // 路由跳转
+            this.$router.push(tags.path)
         },
         handleTagsOption(name){
             if(name=="关闭所有"){

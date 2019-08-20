@@ -1,5 +1,5 @@
 
-//登录主页
+//主页
 import Home from '@/pages/home/home';
 //登录
 import Login from '@/pages/home/login';

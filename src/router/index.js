@@ -31,10 +31,9 @@ export default new Router({
             path:'Serious',
             name:'Serious',
             component:Serious
-        }
+        },
+         ...Home,
       ]
     },
-    // ...Home,
-   
   ]
 })
