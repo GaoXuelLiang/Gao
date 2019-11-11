@@ -36,7 +36,7 @@
             <!-- 2级 -->
             <template v-for="(item2,index2) in item.children">
               <el-submenu v-if="item2.children" :key="index2" :index="item2.id"></el-submenu>
-              <el-menu-item v-else :index="item2.id" :key="index2" :route="{path:item2.nodeName,query:{}}">
+              <el-menu-item v-else :index="item2.id" :key="index2" :route="{path:item2.nodeName,query:{id:item2.id}}">
                 <Icon
                   :type="item2.className"
                   size="16"
@@ -48,7 +48,7 @@
             </template>
         </el-submenu>
         <!-- 没有2级就只显示1级菜单 -->
-        <el-menu-item v-else :index="item.id" :key="index" :route="{path:item.nodeName,query:{}}">
+        <el-menu-item v-else :index="item.id" :key="index" :route="{path:item.nodeName,query:{id:item.id}}">
           <template slot="title" v-if="!shrink">
             <Icon
               :type="item.className"
@@ -148,7 +148,7 @@ export default {
         {
           id: "4",
           className: "ios-color-wand-outline",
-          nodeName: "Wednesday",
+          nodeName: "Terminate",
           children: ""
         }
       ],
@@ -172,6 +172,7 @@ export default {
         for (let i = 0; i < this.data.length; i++) {
           if (this.data[i].id == id) {
             name = this.data[i].nodeName;
+            id =  this.data[i].id;
             break;
           } 
         }
@@ -179,10 +180,12 @@ export default {
           title: name,
           path:'/'+name,
           // path:'',
-          name: name
+          name: name,
+          // query:{id:id}
+          id:id
         };
         // 路由跳转
-        this.$router.push(tag.path)
+        this.$router.push({path:tag.path,query:{id:tag.id,name:tag.name}})
         this.$store.commit("increateTag", tag);
         Bus.$emit("checkname",tag.title)
       }

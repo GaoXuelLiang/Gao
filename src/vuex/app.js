@@ -6,6 +6,7 @@ const app=({
         pageOpenTagList:[{
             title:'home',
             path:'',
+            query:{id:0},
             name:'home'
         }]
     },
@@ -28,6 +29,9 @@ const app=({
                 if(state.pageOpenTagList[i].name==tagObj.name){
                     state.pageOpenTagList.splice(i,1);
                 }
+                if(state.pageOpenTagList.length>6){
+                    state.pageOpenTagList.splice(1,1);
+                }
             }
             state.pageOpenTagList.push(tagObj);
         },
@@ -43,7 +47,6 @@ const app=({
             }
         }
     },
-
 })
 
 export default app

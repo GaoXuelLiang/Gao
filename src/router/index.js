@@ -6,6 +6,10 @@ import Absolutely from './Absolutely'
 import Great from '@/pages/Absolutely/Great'
 import Perfect from '@/pages/Absolutely/Perfect'
 import Serious from '@/pages/Absolutely/Serious'
+import Monday from '@/pages/Appreciate/Monday'
+import Tuesday from '@/pages/Appreciate/Tuesday'
+import Wednesday from '@/pages/Appreciate/Wednesday'
+import Thursday from '@/pages/Appreciate/Thursday'
 
 
 Vue.use(Router)
@@ -31,6 +35,26 @@ export default new Router({
             path:'Serious',
             name:'Serious',
             component:Serious
+        },
+        {
+          path:'Monday',
+          name:'Monday',
+          component:Monday
+        },
+        {
+          path:'Tuesday',
+          name:'Tuesday',
+          component:Tuesday
+        },
+        {
+          path:'Wednesday',
+          name:'Wednesday',
+          component:Wednesday
+        },
+        {
+          path:'Thursday',
+          name:'Thursday',
+          component:Thursday
         },
          ...Home,
       ]
