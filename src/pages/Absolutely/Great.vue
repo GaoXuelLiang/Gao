@@ -4,7 +4,7 @@
             <Col span="24">
             <card>
                 <p slot="title">
-                    <Icon type="mouse"></Icon>
+                  <Icon type="ios-ribbon" />
                     &nbsp;&nbsp;图纸资料管理
                 </p>
                 <Row>
@@ -348,7 +348,11 @@ export default {
                 case "03invalid":
                     t.page = 1;
                     t.disable = true;
-                    t.buttonList = [];
+                    t.buttonList = [{
+                            id: "0",
+                            type:'primary',
+                            name: "0",
+                        }];
                     // t.getData();
                     break;
                 /* case "04close":

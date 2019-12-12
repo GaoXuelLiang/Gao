@@ -6,12 +6,12 @@
                 <div class="title-text">
                     <Icon type="mouse"
                           size="16"
-                          style="margin-right: 10px;"></Icon>{{logType}}图纸资料
+                          style="margin-right: 10px;"></Icon>new图纸资料
                 </div>
                 <Button type="text"
                         @click="handleReset">
-                    <Icon type="close-round"
-                          size="16"></Icon>
+                    <!-- <Icon type="close-round"
+                          size="16"></Icon> -->
                 </Button>
             </div>
             <Form class="form"
