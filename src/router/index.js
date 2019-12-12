@@ -10,6 +10,7 @@ import Monday from '@/pages/Appreciate/Monday'
 import Tuesday from '@/pages/Appreciate/Tuesday'
 import Wednesday from '@/pages/Appreciate/Wednesday'
 import Thursday from '@/pages/Appreciate/Thursday'
+import loginmain from './loginmain'
 
 
 Vue.use(Router)
@@ -20,6 +21,7 @@ export default new Router({
       path: '/',
       name: 'main',
       component: Main,
+      // redirect: '/loginmain',
       children:[
         {
           path:'Great',

@@ -5,14 +5,14 @@
   "author": "Gaoxueliang",
   "private": true,
   "scripts": {
-    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js --host 192.168.21.146",
+    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     "lint": "eslint --ext .js,.vue src",
-    "build": "node build/build.js"
+    "build": "node --max_old_space_size=4096 build/build.js"
   },
   "dependencies": {
     "element-ui": "^2.10.1",
-    "iview": "^3.4.2",
+    "iview": "^3.5.4",
     "vue": "^2.5.2",
     "vue-avatar": "^2.1.7",
     "vue-router": "^3.0.1"
